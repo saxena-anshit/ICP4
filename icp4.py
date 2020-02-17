@@ -1,6 +1,10 @@
 from pyspark import SparkContext
 
 sc = SparkContext.getOrCreate()
+# x = sc.textFile("/home/ansh/PycharmProjects/ICP4/data.csv") \
+#     .map(lambda line: line.split(",")) \
+#     .map(lambda line: (line[3]))
+# print(x.collect())
 
 # x = sc.textFile("/home/ansh/PycharmProjects/ICP4/data.csv") \
 #     .map(lambda line: line.split(",")) \
@@ -16,10 +20,6 @@ sc = SparkContext.getOrCreate()
 # print(x.count())
 # print(x.take(2))
 
-# x = sc.textFile("/home/ansh/PycharmProjects/ICP4/data.csv") \
-#     .map(lambda line: line.split(",")) \
-#     .map(lambda line: (line[3]))
-# print(x.collect())
 x = sc.textFile("/home/ansh/PycharmProjects/ICP4/data.csv") \
     .map(lambda line: line.split(","))
 df4 = x.filter(lambda line: "105.5" in line).collect()
